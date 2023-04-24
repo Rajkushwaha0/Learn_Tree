@@ -1,0 +1,19 @@
+We can do with any traversal technique
+
+class Tree
+{
+    int countLeaves(Node node) 
+    {
+         // Your code  
+         return preorder(node);
+    }
+    public static int preorder(Node root){
+     if(root == null) return 0;
+    int count=0;
+
+    if(root.left == null && root.right== null) return 1;
+    count+=preorder(root.left);
+    count+=preorder(root.right);
+    return count;
+  }
+}
