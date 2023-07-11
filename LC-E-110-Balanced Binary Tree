@@ -91,7 +91,7 @@ class Solution {
         Boolean rightans=right.getKey();
         
         Boolean ans = Math.abs(left.getValue()-right.getValue())<=1;
-        if(left!=null && right!=null && ans){
+        if(leftans && rightans && ans){
             Pair<Boolean,Integer> an= new Pair (true,Math.max(left.getValue(),right.getValue())+1);
             return an;
 
