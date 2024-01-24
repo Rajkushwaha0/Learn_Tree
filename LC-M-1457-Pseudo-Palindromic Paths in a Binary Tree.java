@@ -1,17 +1,17 @@
 //Optimize solution
-int countPseudoPalindromicPaths(TreeNode* node, int path) {
-        if (!node) {
-            return 0;
-        }
-
-        path ^= (1 << node->val);
-
-        if (!node->left && !node->right) {
-            return (path & (path - 1)) == 0 ? 1 : 0;
-        }
-
-        return countPseudoPalindromicPaths(node->left, path) + countPseudoPalindromicPaths(node->right, path);
+class Solution{
+    public int pseudoPalindromicPaths (TreeNode root) {
+        return solve(root,0);
     }
+    public int solve(TreeNode root,int cnt){
+        if(root==null) return 0;
+        cnt^= (1<<root.val);
+        if(root.left==null && root.right==null){
+            return (cnt & (cnt-1))==0 ? 1:0;
+        }
+        return solve(root.left,cnt)+solve(root.right,cnt);
+    }
+} 
 
 //My solution
 class Solution {
